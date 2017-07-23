@@ -20,7 +20,10 @@ public class AccountTests {
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-        fail();
+        account.setBalance(100);
+        account.withdraw(50);
+
+        assertThat(account.getBalance(), is(50));
     }
 
     @Test
