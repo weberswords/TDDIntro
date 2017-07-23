@@ -1,12 +1,18 @@
 package com.thoughtworks.tddintro.exercises.factorial;
 
-public class Factorial {
-    public Integer compute(int i) {
+import java.lang.IllegalArgumentException;
 
-        if (i == 0) {
-            return 1;
+public class Factorial {
+    public Integer compute(int i) throws IllegalArgumentException {
+
+        if (i < 0) {
+            throw new IllegalArgumentException("Negative numbers are not acceptable. Try to be more positive.");
         } else {
-            return findFactorial(i);
+            if (i == 0) {
+                return 1;
+            } else {
+                return findFactorial(i);
+            }
         }
     }
 
