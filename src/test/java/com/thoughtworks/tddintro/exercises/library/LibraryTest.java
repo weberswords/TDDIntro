@@ -45,8 +45,11 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-        fail();
-        // implement me
+        books.clear();
+
+        library.listBooks();
+
+        verify(printStream).println("");
     }
 
     @Test
