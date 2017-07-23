@@ -19,6 +19,11 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-        balance -= amount;
+        if (amount > getBalance()) {
+            System.out.println("Insufficient funds.");
+        }
+        else {
+            balance -= amount;
+        }
     }
 }
