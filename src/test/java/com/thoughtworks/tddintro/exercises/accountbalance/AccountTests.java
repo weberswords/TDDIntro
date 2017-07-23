@@ -28,6 +28,9 @@ public class AccountTests {
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-        fail();
+        account.setBalance(50);
+        account.withdraw(100);
+
+        assertThat(account.getBalance(), is(50));
     }
 }
