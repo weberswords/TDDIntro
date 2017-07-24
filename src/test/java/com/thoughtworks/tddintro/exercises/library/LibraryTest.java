@@ -13,6 +13,7 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -38,7 +39,7 @@ public class LibraryTest {
 
         library.listBooks();
 
-        verify(printStream).println("Book Title");
+        verify(printStream).println("Book Title\n");
 
     }
 
@@ -53,7 +54,6 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
-        when(bufferedReader.readLine()).thenThrow(new IOException());
         books.clear();
         books.add("A book");
         books.add("Another book");
@@ -72,7 +72,7 @@ public class LibraryTest {
 
     @Test
     public void shouldDeleteBookFromCollectionWhenRemovedByUser() throws IOException {
-        // Add when/thenReturn here
+        when(bufferedReader.readLine()).thenReturn("The Two Towers");
 
         books.add("The Two Towers");
         library.removeBook();
